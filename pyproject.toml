@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PHANTOM"
+version = "1.0.0"
+description = "Probabilistic Host Assignment via Nonlinear Tomographic Overdensity Maps"
+authors = [{name = "Paula Pérez Álvarez", email = "pperezal41@alumnes.ub.edu"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+    "matplotlib>=3.4",
+    "pandas>=1.3",
+    "h5py>=3.6",
+    "healpy>=1.15",
+    "camb>=1.3",
+]
+
+[project.scripts]
+darksiren-run = "darksiren_hosts.run:main"
+darksiren-experiments = "darksiren_hosts.experiments_run:main"
+darksiren-plot = "darksiren_hosts.plot_run:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["darksiren_hosts*"]
